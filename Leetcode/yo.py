@@ -69,14 +69,39 @@ else:
     #print("你输了")
     pass
 
-if isinstance(i, int):
-    print("i is integer")
-else:
-    print("i is not integer")
+# if isinstance(i, int):
+#     print("i is integer")
+# else:
+#     print("i is not integer")
 
+# 佑佑的作品
 w =0.8
-if isinstance(w,float):
-    print("w is not integer")
-else:
-    print("w is integer")
+# if isinstance(w,float) == True:
+#     print("w is not integer")
+# else:
+#     print("w is integer")
 
+"""
+第五节：变量的种类
+- Boolean(布尔值) - 对 or 错
+    True - 对。  False - 错
+- List(列表)
+"""
+# Boolean(布尔值)
+# print(isinstance(w, float))
+# print(isinstance(w, str))
+# print(isinstance("w", str))
+
+# List(列表)
+list_1 = [6,5,9,0,8,7,1,2,3,6,3,7,4]
+for i in list_1:
+    pass
+
+# 从 list 里挑一个数字
+print(list_1[7])  # 抽第八个数字，为什么写 ‘7’：
+                # 在大部分编程语言里面：0 才是开头，0 是第一个数字
+# 从 list 里挑多个数字: 最后一位停止
+print(list_1[1:7])
+print(list_1[8:12])
+print(list_1[8:10000])
+            
