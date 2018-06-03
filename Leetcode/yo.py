@@ -51,4 +51,32 @@ print：打印（返还）结果终端
 # print(type(i))
 
 i =8.8888   
-print(type(i))
+# print(type(i))
+
+"""
+第四节：
+条件逻辑：if，else
+if 的意思：如果，else ：其他
+if：当 （某件事情）发生 -》 我们怎么做
+esle：如果其他情况发生 -》我们怎么做
+"""
+i = .1
+
+if i >= 10:
+    #print("你赢了")
+    pass
+else:
+    #print("你输了")
+    pass
+
+if isinstance(i, int):
+    print("i is integer")
+else:
+    print("i is not integer")
+
+w =0.8
+if isinstance(w,float):
+    print("w is not integer")
+else:
+    print("w is integer")
+
