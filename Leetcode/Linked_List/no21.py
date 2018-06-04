@@ -7,33 +7,10 @@ the first two lists.
 """
 
 # For testing purpose only
+from test_linked_list import create_list
+from test_linked_list import print_list
+from test_linked_list import ListNode
 import sys
-
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-# create a linked list by using list
-def create_list(l):
-    head = ListNode(l[0])
-    pointer = head
-    for n in l[1:]:
-        pointer.next = ListNode(n)
-        pointer = pointer.next
-    pointer.next = None
-    return head
-
-# print a linked list with integers only
-def print_list(l):
-    result = ""
-    while(l != None): 
-        result = result + str(l.val) + "->"
-        l = l.next
-    result += "None"
-    print(result)
-
 
 class Solution:
     def mergeTwoLists(self, l1, l2):
@@ -46,7 +23,9 @@ class Solution:
             return l2
         if not l2:
             return l1
-
+        # Two pointers point to a new linked list (where to merged):
+        # Both were initialized to the head of the new linked list.
+        # keed the 'head', move 'current' to add new elements.
         current = head = ListNode(0)
         while l1 and l2:
             if l1.val < l2.val:
@@ -55,7 +34,7 @@ class Solution:
             else:
                 current.next = l2
                 l2 = l2.next
-            current = current.next # Move the pointer one more to the back
+            current = current.next # Move the pointer forward
         if l1:
             current.next = l1
         else:
@@ -76,6 +55,6 @@ LC里面本身的链表结构是什么样的呢？
 s = Solution
 
 if __name__ == "__main__":
-    print_list(l1)
+    print_list(s.mergeTwoLists(s,l1,l2))
 
 

@@ -76,10 +76,10 @@ else:
 
 # 佑佑的作品
 w =0.8
-# if isinstance(w,float) == True:
-#     print("w is not integer")
-# else:
-#     print("w is integer")
+if isinstance(w,float) == True:
+    print("w is not integer")
+else:
+    print("w is integer")
 
 """
 第五节：变量的种类
@@ -88,9 +88,9 @@ w =0.8
 - List(列表)
 """
 # Boolean(布尔值)
-# print(isinstance(w, float))
-# print(isinstance(w, str))
-# print(isinstance("w", str))
+print(isinstance(w, float))
+print(isinstance(w, str))
+print(isinstance("w", str))
 
 # List(列表)
 list_1 = [6,5,9,0,8,7,1,2,3,6,3,7,4]
