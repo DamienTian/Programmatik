@@ -24,9 +24,9 @@ def print_list(l):
     print(result)
 
 # get the length of a linked list
-def getLength(head):
-        result = 0
-        while head != None:
-            result += 1
-            head = head.next
-        return result
+def get_length(head):
+    result = 0
+    while head != None:
+        result += 1
+        head = head.next
+    return result
