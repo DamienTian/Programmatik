@@ -104,4 +104,4 @@ print(list_1[7])  # 抽第八个数字，为什么写 ‘7’：
 print(list_1[1:7])
 print(list_1[8:12])
 print(list_1[8:10000])
-            
+print(list_1[9:11])            

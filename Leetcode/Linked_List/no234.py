@@ -5,7 +5,7 @@ Addition: O(n) time and O(1) space.
 
 要想实现O(1) space, 就不能用list或dict储存。
 关键是将后半段链表反转：
-    将链表从开头开始，放入一个新的链表。
+    将链表从开头开始，放入一个新的链表，如此反复 （图解见我的OneNote）
 """
 
 # For testing purpose only
