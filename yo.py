@@ -75,11 +75,11 @@ else:
 #     print("i is not integer")
 
 # 佑佑的作品
-w =0.8
-if isinstance(w,float) == True:
-    print("w is not integer")
-else:
-    print("w is integer")
+# w =0.8
+# if isinstance(w,float) == True:
+#     print("w is not integer")
+# else:
+#     print("w is integer")
 
 """
 第五节：变量的种类
@@ -88,9 +88,9 @@ else:
 - List(列表)
 """
 # Boolean(布尔值)
-print(isinstance(w, float))
-print(isinstance(w, str))
-print(isinstance("w", str))
+# print(isinstance(w, float))
+# print(isinstance(w, str))
+# print(isinstance("w", str))
 
 # List(列表)
 list_1 = [6,5,9,0,8,7,1,2,3,6,3,7,4]
@@ -98,10 +98,35 @@ for i in list_1:
     pass
 
 # 从 list 里挑一个数字
-print(list_1[7])  # 抽第八个数字，为什么写 ‘7’：
-                # 在大部分编程语言里面：0 才是开头，0 是第一个数字
-# 从 list 里挑多个数字: 最后一位停止
-print(list_1[1:7])
-print(list_1[8:12])
-print(list_1[8:10000])
-print(list_1[9:11])            
+# print(list_1[7])  # 抽第八个数字，为什么写 ‘7’：
+#                 # 在大部分编程语言里面：0 才是开头，0 是第一个数字
+# # 从 list 里挑多个数字: 最后一位停止
+# print(list_1[1:7])
+# print(list_1[8:12])
+# print(list_1[8:10000])
+# print(list_1[9:11])            
+
+"""
+第六节：
+元组（Tuple）:储存一系列的变量，但没法随意变更，且没有重复的变量
+            用小括号包裹
+字典（Dictionary）: 有一个 key (关键字) ，对应一个 value （值）
+            用大括号包裹，有对应的 key 和 value
+"""
+t = (1,2,3) # 一个元组的范例
+l = [1,2,3] # 一个列表的范例
+l.append(4)
+l.append(4)
+
+tt = (1,1,2,2,3,3)
+
+d = {
+    "我": "佑佑",
+    # key: "我"
+    # value: "佑佑"
+    "12": "34",
+    "钥匙": "锁"
+}
+
+print(d["我"])
+print(d["12"])
