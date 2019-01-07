@@ -130,3 +130,19 @@ d = {
 
 print(d["我"])
 print(d["12"])
+
+"""
+第七节：
+方法：(Function)
+把你想要的执行命令输入到一个集合（方法）
+"""
+
+# 在 python 里面，方法是：
+# 备注：def: define - 定义
+# 方法（function) 可以是任何名字
+def function(a, b):
+    return a + b
+
+a = 50000
+b = 12446
+print(function(a, b))
