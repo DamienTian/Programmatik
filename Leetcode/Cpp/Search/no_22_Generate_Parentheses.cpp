@@ -1,3 +1,4 @@
+// Reference: http://bangbingsyb.blogspot.com/2014/11/leetcode-generate-parentheses.html
 #include <iostream>
 #include <vector>
 
