@@ -1,5 +1,4 @@
-#include <iostream>
-#include <map>
+#include "../includes.h"
 
 using namespace std;
 
@@ -21,7 +20,47 @@ public:
 // ref: http://bangbingsyb.blogspot.com/2014/11/leetcode-copy-list-with-random-pointer.html
 // time: o(n) - go through list twice 2n -> n  
 // space: o(n) - hash map
-class HashMapSolution {
+class HashMapSolution1 {
+public:
+    Node* copyRandomList(Node* head) {
+        if(!head){
+            return NULL;
+        }
+        
+        unordered_map<Node* , Node*> hash;
+        Node* p1 = head;
+        Node* p2 = new Node(head->val, head->next, head->random);
+        hash[head] = p2;
+        
+        while(p1){
+            if(p1->next){
+                if(hash.count(p1->next)){
+                    p2->next = hash[p1->next];
+                }
+                else{
+                    p2->next = new Node(p1->next->val, NULL, NULL);
+                    hash[p1->next] = p2->next;
+                }
+            } 
+            if(p1->random){
+                if(hash.count(p1->random)){
+                    p2->random = hash[p1->random];
+                }
+                else{
+                    p2->random = new Node(p1->random->val, NULL, NULL);
+                    hash[p1->random] = p2->random;
+                }
+            }
+            p1 = p1->next;
+            p2 = p2->next;
+        }
+        
+        return hash[head];
+    }
+};
+
+
+class HashMapSolution2 {
 public:
     Node* copyRandomList(Node* head) {
         if (!head){
@@ -29,6 +68,7 @@ public:
         }
         
         // head of the deep copy linked list
+        // copy the head in first
         Node* copy = new Node(head->val, head->next, head->random);
         
         // two cursors to go through the list
@@ -44,7 +84,10 @@ public:
         while(next_node){
             Node* temp = new Node(next_node->val, NULL, NULL);
             current_node->next = temp;
-            memory[next_node] = temp; // add into hash
+            // add into hash:
+            //  since we add the node into hash, when we want to exact the random linked
+            // in the future, we can just call from the memory hash table
+            memory[next_node] = temp; 
             current_node = current_node->next;
             next_node = next_node->next;
         }
