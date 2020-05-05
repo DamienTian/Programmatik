@@ -1,5 +1,6 @@
 # declare the variables
-CC=clang++
+# CC=clang++
+CC = cl
 
 # default commands
 all: no121

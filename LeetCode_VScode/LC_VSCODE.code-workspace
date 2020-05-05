@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"ostream": "cpp",
+			"utility": "cpp",
+			"xstring": "cpp",
+			"deque": "cpp",
+			"list": "cpp",
+			"stack": "cpp",
+			"vector": "cpp",
+			"xhash": "cpp",
+			"algorithm": "cpp"
+		}
+	}
+}
