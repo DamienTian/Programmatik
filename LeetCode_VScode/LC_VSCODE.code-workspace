@@ -14,7 +14,8 @@
 			"stack": "cpp",
 			"vector": "cpp",
 			"xhash": "cpp",
-			"algorithm": "cpp"
+			"algorithm": "cpp",
+			"queue": "cpp"
 		}
 	}
 }
