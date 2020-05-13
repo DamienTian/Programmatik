@@ -15,7 +15,8 @@
 			"vector": "cpp",
 			"xhash": "cpp",
 			"algorithm": "cpp",
-			"queue": "cpp"
+			"queue": "cpp",
+			"iostream": "cpp"
 		}
 	}
 }
