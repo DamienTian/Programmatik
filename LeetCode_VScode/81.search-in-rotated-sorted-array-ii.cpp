@@ -28,7 +28,7 @@ public:
                 if(nums[mid] > target && nums[left] <= target)  right = mid - 1;
                 else left = mid + 1;
             }
-            // this process when the duplicated element
+            // this process the duplicated element
             else if(nums[mid] == nums[right])
                 // just let right index move left and detect again (left OR right side is balanced)
                 --right;

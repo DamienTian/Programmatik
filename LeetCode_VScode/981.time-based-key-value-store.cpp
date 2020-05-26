@@ -8,69 +8,71 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <utility>
+#include <map>
 #include <unordered_map>
 
 using namespace std;
 
-// class TimeMap
-// {
-// public:
-//     /** Initialize your data structure here. */
-//     TimeMap() {}
+class TimeMap1
+{
+public:
+    /** Initialize your data structure here. */
+    TimeMap1() {}
 
-//     void set(string key, string value, int timestamp)
-//     {
-//         if (mem.count(key))
-//         {
-//             int left = 0;
-//             int right = mem[key].size();
-//             while (left < right)
-//             {
-//                 int mid = left + (right - left) / 2;
-//                 if (timestamp < mem[key][mid].first)
-//                 {
-//                     left = mid + 1;
-//                 }
-//                 else
-//                 {
-//                     right = mid;
-//                 }
-//             }
+    void set(string key, string value, int timestamp)
+    {
+        if (mem.count(key))
+        {
+            int left = 0;
+            int right = mem[key].size();
+            while (left < right)
+            {
+                int mid = left + (right - left) / 2;
+                if (timestamp < mem[key][mid].first)
+                {
+                    left = mid + 1;
+                }
+                else
+                {
+                    right = mid;
+                }
+            }
 
-//             mem[key].insert(mem[key].begin() + right, pair<int, string>(timestamp, value));
-//         }
-//         else
-//         {
-//             mem[key] = {};
-//             mem[key].push_back(pair<int, string>(timestamp, value));
-//         }
-//     }
+            mem[key].insert(mem[key].begin() + right, pair<int, string>(timestamp, value));
+        }
+        else
+        {
+            mem[key] = {};
+            mem[key].push_back(pair<int, string>(timestamp, value));
+        }
+    }
 
-//     string get(string key, int timestamp)
-//     {
-//         if (!mem.count(key))
-//             return "";
-//         int left = 0;
-//         int right = mem[key].size();
-//         while (left < right)
-//         {
-//             int mid = left + (right - left) / 2;
-//             if (timestamp < mem[key][mid].first)
-//             {
-//                 left = mid + 1;
-//             }
-//             else
-//             {
-//                 right = mid;
-//             }
-//         }
+    string get(string key, int timestamp)
+    {
+        if (!mem.count(key))
+            return "";
+        int left = 0;
+        int right = mem[key].size();
+        while (left < right)
+        {
+            int mid = left + (right - left) / 2;
+            if (timestamp < mem[key][mid].first)
+            {
+                left = mid + 1;
+            }
+            else
+            {
+                right = mid;
+            }
+        }
 
-//         return mem[key][right].second;
-//     }
+        return mem[key][right].second;
+    }
 
-// private:
-//     unordered_map<string, vector<pair<int, string>>> mem;
-// };
+private:
+    unordered_map<string, vector<pair<int, string>>> mem;
+};
 
 // Author: Huahua, running time: 200 ms
 class TimeMap {

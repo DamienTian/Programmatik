@@ -13,24 +13,24 @@ using namespace std;
 
 // Solution 1: divide and conqure (binary search)
 // ref: https://zxi.mytechroad.com/blog/leetcode/leetcode-153-find-minimum-in-rotated-sorted-array/
-// class Solution {
-// public:
-//     int findMin(vector<int>& nums) {
-//         return findMin(nums, 0, nums.size() - 1);
-//     }
+class Solution1 {
+public:
+    int findMin(vector<int>& nums) {
+        return findMin(nums, 0, nums.size() - 1);
+    }
 
-//     int findMin(const vector<int> nums, int left, int right){
-//         // if only two element left in the array
-//         if(left + 1 >= right)   return min(nums[left], nums[right]);
+    int findMin(const vector<int> nums, int left, int right){
+        // if only two element left in the array
+        if(left + 1 >= right)   return min(nums[left], nums[right]);
 
-//         // use the property of the sorted array to find the max
-//         if(nums[left] < nums[right])    return nums[left];
+        // use the property of the sorted array to find the max
+        if(nums[left] < nums[right])    return nums[left];
 
-//         int mid = left + (right - left) / 2;
+        int mid = left + (right - left) / 2;
 
-//         return min(findMin(nums, left, mid), findMin(nums, mid + 1, right));  
-//     }
-// };
+        return min(findMin(nums, left, mid), findMin(nums, mid + 1, right));  
+    }
+};
 
 // Solution 2: Binary Search
 // ref: https://www.cnblogs.com/grandyang/p/4032934.html

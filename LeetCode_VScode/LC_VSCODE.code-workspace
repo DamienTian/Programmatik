@@ -16,7 +16,9 @@
 			"xhash": "cpp",
 			"algorithm": "cpp",
 			"queue": "cpp",
-			"iostream": "cpp"
+			"iostream": "cpp",
+			"map": "cpp",
+			"xiosbase": "cpp"
 		}
 	}
 }
