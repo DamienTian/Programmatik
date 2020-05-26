@@ -129,3 +129,48 @@ vector<int> Sort::quickSort(vector<int> &v, int l, int r){
     return v;
 }
 
+// 堆排序
+
+// 构建 Maxheap
+void buildMaxHeap(vector<int> v, int len){
+    // Q：为什么 i 等于 len / 2
+    // A：因为 heap 的树状结构，在 len / 2 之后全部是叶子节点
+    for(int i = len / 2; i >= 0; --i){
+        heapify(v, len, i);
+    }
+}
+
+// 将 array 堆化，调整 Maxheap
+void heapify(vector<int>& v, int len, int i){
+    // 左右子节点位置
+    int left = 2 * i + 1, right = 2 * i + 2;
+    // 目前值最大的节点位置
+    int largest = i;
+
+    // 找出当前堆的最大值
+    if(left < len && v[left] > v[largest])
+        largest = left;
+    if(right < len && v[right] > v[largest])
+        largest = right;
+    
+    // 若堆的最大值位置改变，则继续堆化
+    if(largest != i){
+        swap(v[i], v[largest]);
+        heapify(v, len, largest);
+    }
+}
+
+vector<int> Sort::heapSort(vector<int> v){
+    vector<int> result = v;
+    int len = result.size();
+    buildMaxHeap(result, len);
+
+    // 生成 MaxHeap 后，将顶端与末尾置换，再进行堆化
+    for(int i = result.size() - 1; i > 0; --i){
+        swap(result[0], result[i]);
+        --len;
+        heapify(result, len, 0);
+    }
+
+    return result;
+}
