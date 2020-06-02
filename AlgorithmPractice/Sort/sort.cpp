@@ -1,4 +1,5 @@
 #include "sort.h"
+// #include "../helper.h"
 
 Sort::Sort(){};
 Sort::~Sort(){};
@@ -112,7 +113,7 @@ int partation(vector<int> &v, int l, int r){
         }
     }
 
-    // 将 pivot 放在正确的位置（与最靠前的大于 pivot 交换）
+    // 将 pivot 放在正确的位置（与第一个的大于 pivot 的值交换）
     swap(v[r], v[lastSmallerIndex + 1]);
     return lastSmallerIndex + 1;
 }
@@ -122,6 +123,7 @@ vector<int> Sort::quickSort(vector<int> &v, int l, int r){
 
     if(l < r){
         partitionIndex = partation(v, l, r);
+        // 分开再次排序（左部是小于 pivot 的值，右侧是大于的）
         quickSort(v, l, partitionIndex - 1);
         quickSort(v, partitionIndex + 1, r);
     }
@@ -129,47 +131,53 @@ vector<int> Sort::quickSort(vector<int> &v, int l, int r){
     return v;
 }
 
-// 堆排序
+// 堆排序 (目前仍有问题)
+
+int len; // 因为声明的多个函数都需要数据长度，所以把len设置成为全局变量
+void buildMaxHeap(vector<int> v, int len);
+void heapify(vector<int>& v, int i);
 
 // 构建 Maxheap
-void buildMaxHeap(vector<int> v, int len){
+void buildMaxHeap(vector<int> v){
+    len = v.size();
     // Q：为什么 i 等于 len / 2
     // A：因为 heap 的树状结构，在 len / 2 之后全部是叶子节点
-    for(int i = len / 2; i >= 0; --i){
-        heapify(v, len, i);
+    for(int i = len / 2 - 1; i >= 0; --i){
+        heapify(v, i);
     }
 }
 
 // 将 array 堆化，调整 Maxheap
-void heapify(vector<int>& v, int len, int i){
+void heapify(vector<int>& v, int i){
     // 左右子节点位置
     int left = 2 * i + 1, right = 2 * i + 2;
     // 目前值最大的节点位置
     int largest = i;
-
-    // 找出当前堆的最大值
-    if(left < len && v[left] > v[largest])
-        largest = left;
-    if(right < len && v[right] > v[largest])
-        largest = right;
     
+    // 找出当前堆的最大值
+    if(left < len && v[left] > v[largest]){
+        largest = left;
+    }
+    if(right < len && v[right] > v[largest]){
+        largest = right;
+    }
+        
     // 若堆的最大值位置改变，则继续堆化
     if(largest != i){
         swap(v[i], v[largest]);
-        heapify(v, len, largest);
+        heapify(v, largest);
     }
 }
 
 vector<int> Sort::heapSort(vector<int> v){
     vector<int> result = v;
-    int len = result.size();
-    buildMaxHeap(result, len);
+    buildMaxHeap(result);
 
     // 生成 MaxHeap 后，将顶端与末尾置换，再进行堆化
     for(int i = result.size() - 1; i > 0; --i){
         swap(result[0], result[i]);
         --len;
-        heapify(result, len, 0);
+        heapify(result, 0);
     }
 
     return result;

@@ -30,6 +30,17 @@ int main(){
     printVectorInt(s.quickSort(test, 0, test.size() - 1));
     cout << endl;
 
+    cout << endl;
+
+    test = vector<int>{1,5,3,4,2,0,6};
+    cout << "Before Sort: ";
+    printVectorInt(test);
+    cout << endl;
+
+    cout << "After Heap Sort: ";
+    printVectorInt(s.heapSort(test));
+    cout << endl;
+
     printVectorInt(test);
 
     return 0;
