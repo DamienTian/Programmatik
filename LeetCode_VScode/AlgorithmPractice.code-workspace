@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../../Programmatik/AlgorithmPractice/Sort"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"vector": "cpp"
+		}
+	}
+}
